@@ -120,10 +120,8 @@
 #             print(f"{key}: {value}")
 
 
-# # Create an object
 # ramat_gan_safari = Zoo("Ramat Gan Safari")
 
-# # Call the methods
 # ramat_gan_safari.add_animal("Giraffe")
 # ramat_gan_safari.add_animal("Lion")
 # ramat_gan_safari.add_animal("Giraffe")  # Trying to add Giraffe again to test the duplicate message
