@@ -317,40 +317,201 @@
 # #Process finished with exit code 1
 
 
-class Pets():
-    def __init__(self, animals):
-        self.animals = animals
+# class Pets():
+#     def __init__(self, animals):
+#         self.animals = animals
 
-    def walk(self):
-        for animal in self.animals:
-            print(animal.walk())
+#     def walk(self):
+#         for animal in self.animals:
+#             print(animal.walk())
 
-class Cat():
-    is_lazy = True
+# class Cat():
+#     is_lazy = True
 
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
 
-    def walk(self):
-        return f'{self.name} is just walking around'
+#     def walk(self):
+#         return f'{self.name} is just walking around'
 
-class Bengal(Cat):
-    def sing(self, sounds):
-        return f'{sounds}'
+# class Bengal(Cat):
+#     def sing(self, sounds):
+#         return f'{sounds}'
 
-class Chartreux(Cat):
-    def sing(self, sounds):
-        return f'{sounds}'
+# class Chartreux(Cat):
+#     def sing(self, sounds):
+#         return f'{sounds}'
     
-class Siamese(Cat):
-    pass
+# class Siamese(Cat):
+#     pass
 
-bengal_cat = Bengal("Bengal", 3)
-chartreux_cat = Chartreux("Chartreux", 4)
-siamese_cat = Siamese("Siamese", 2)
+# bengal_cat = Bengal("Bengal", 3)
+# chartreux_cat = Chartreux("Chartreux", 4)
+# siamese_cat = Siamese("Siamese", 2)
 
-all_cats = [bengal_cat, chartreux_cat, siamese_cat]
-sara_pets = Pets(all_cats)
-sara_pets.walk()
+# all_cats = [bengal_cat, chartreux_cat, siamese_cat]
+# sara_pets = Pets(all_cats)
+# sara_pets.walk()
 
+# class Dog():
+#     dogs_king = "Bernie IV"
+
+#     # Initializer / Instance Attributes
+#     def __init__(self, name_of_the_dog):
+#         print("A new dog has been initialized !")
+#         print("His name is", name_of_the_dog)
+#         self.name = name_of_the_dog
+
+#     def bark(self):
+#         print("{} barks ! WAF".format(self.name))
+
+#     def walk(self, number_of_meters):
+#         print("{} walked {} meters".format(self.name, number_of_meters))
+
+#     def rename(self, new_name):
+#         self.name = new_name
+
+# my_dog = Dog("Rex")
+# my_dog.rename("Paul")
+# print("The king of the dogs is:", Dog.dogs_king)
+
+# class Circle:
+#     color = "red"
+
+#     def __init__(self, diameter):
+#         self.diameter = diameter
+
+#     def grow(self, factor=2):
+#         self.diameter = self.diameter * factor
+
+#     def get_color(self):
+#        return Circle.color
+
+# circle1 = Circle(2)
+# print(circle1.color)
+# print(Circle.color)
+# print(circle1.get_color())
+# circle1.grow(3)
+# print(circle1.diameter)
+
+# class MyClass:
+#   @staticmethod
+#   def add(a, b): 
+#     return a + b
+
+# print(MyClass.add(3, 6))
+
+# class Man():
+#     sex = "Male"
+
+#     @staticmethod
+#     def get_nicknames():
+#         return ["Bro", "Dude", "Buddy"]
+    
+# print("Man's nicknames are:", Man.get_nicknames())
+# print("Man's sex is:", Man.sex)
+
+
+
+
+# class MyClass:
+#   __counter = 0
+
+#   @classmethod
+#   def add(cls,a): 
+#     return cls.__counter + a
+
+# my_class_add = MyClass.add(3)
+# print(my_class_add)
+# # >> 3
+
+# new_class = MyClass()
+# new_class.__counter = 1
+
+# # print(new_class.add(3))
+# class Person:
+
+#     used_names = set()
+
+#     def __init__(self, name, age):
+#         if name in self.used_names:
+#             name = input("That name is taken. Enter another name: ")
+
+#         self.name = name
+#         self.age = age
+#         self.used_names.add(name)
+
+#     @classmethod
+#     def fromYear(cls, name, birth_year):
+#         THIS_YEAR = 2020
+#         return cls(name, THIS_YEAR - birth_year)
+
+#     @property
+#     def professional_name(self):
+#         return "Mr " + self.name
+
+# print(Person.fromYear("John", 1990).professional_name)
+
+# class MyClass(object):
+#     count = 0
+
+#     def __init__(self, val):
+#         self.val = val
+#         MyClass.count += 1
+
+#     def set_val(self, newval):
+#         self.val = newval
+
+#     def get_val(self):
+#         return self.val
+
+#     @classmethod
+#     def get_count(cls):
+#         return cls.count
+
+# object_1 = MyClass(10)
+# print("\nValue of object : %s" % object_1.get_val())
+# print(MyClass.get_count())
+
+# object_2 = MyClass(20)
+# print("\nValue of object : %s" % object_2.get_val())
+# print(MyClass.get_count())
+
+# class MyClass(object):
+#     count = 0
+
+#     def __init__(self, val):
+#         self.val = self.filterint(val)
+#         MyClass.count += 1
+
+#     @staticmethod
+#     def filterint(value):
+#         if not isinstance(value, int):
+#             print("Entered value is not an INT, value set to 0")
+#             return 0
+#         else:
+#             return value
+
+
+# a = MyClass(5)
+# b = MyClass(10)
+# c = MyClass(15)
+
+# print(a.val)
+# print(b.val)
+# print(c.val)
+# print(a.filterint(100))
+
+
+# class PrintList(object):
+
+#     def __init__(self, my_list):
+#         self.mylist = my_list
+
+#     def __repr__(self):
+#         return str(self.mylist)
+
+
+# printlist = PrintList(["a", "b", "c"])
+# print(printlist.__repr__())
