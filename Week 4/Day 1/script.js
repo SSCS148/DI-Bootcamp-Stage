@@ -87,3 +87,164 @@
 // let colors = ["blue", "yellow", "green" ]; 
 // colors.splice(0, 1, 45, 23); 
 // console.log(colors) 
+
+// let age = 2
+
+// if (age > 18) {
+//     console.log("We can go to a pub together !!")
+// } else {
+//     console.log("Sorry...You have to stay at home tonight")
+// }
+
+// let age = 20
+
+// if (age === 18) {
+//     console.log("It's your birthday !!") 
+// } else if (age > 18) {
+//     console.log("We can go to a pub together !!")
+// } else {
+//     console.log("Sorry...You have to stay at home tonight")
+// }
+
+
+// let age = prompt("How old are you ?")
+// if (age < 18){
+//     console.log("Sorry, you are too young to drive this car. Powering off")
+// }else if (age == 18){
+//     console.log("Congratulations on your first year of driving. Enjoy the ride!")
+// }else if (age >= 18){
+//     console.log("Powering On. Enjoy the ride!")
+// }
+
+// let fruit = prompt("Please enter your fruit");
+
+// switch (fruit) {
+//   case 'Oranges':
+//     console.log('Oranges are $0.59 a pound.');
+//     break;
+//   case 'Mangoes':
+//   case 'Papayas':
+//     console.log('Mangoes and papayas are $2.79 a pound.');
+//     // expected output: "Mangoes and papayas are $2.79 a pound."
+//     break;
+//   default:
+//     console.log('Sorry, we are out of ' + fruit + '.');
+// }
+
+// let a = 2 + 2;
+
+// switch (a) {
+//   case 3:
+//     alert( 'Too small' );
+//     break;
+//   case 4:
+//     alert( 'Exactly!' );
+//     break;
+//   case 5:
+//     alert( 'Too large' );
+//     break;
+//   default:
+//     alert( "I don't know such values" );
+// }
+
+
+// let a = 2 + 2;
+
+// switch (a) {
+//   case 4:
+//     alert('Right!');
+//     break;
+
+//   case 3: // (*) grouped two cases
+//   case 5:
+//     alert('Wrong!');
+//     alert("Why don't you take a math class?");
+//     break;
+
+//   default:
+//     alert('The result is strange. Really.');
+// }
+
+// let age = [13,1,6,56,45,30,98]
+// for (ages in age){
+//     console.log(age[ages])
+// }
+
+// for (let i = 0; i <= 11; i++) {
+//     console.log("the current number is " + i)
+// }
+// let arr = [1,4,7,10,98]
+// for (let i=0; i<arr.length; i++) {
+//     console.log(arr[i])
+// }
+
+// for (i=0; i<=15; i++){
+//     if (i%2==0){
+//         console.log(" This number " + i +" is even")
+//     } else {
+//         console.log(" This number " + i +" is odd")
+//         }
+    
+// }
+
+// let person = {fname:"John", lname:"Doe", age:25};
+// for (let x in person) {
+//   console.log(x) //fname lname age
+//   console.log(person[x]) // John Doe 25
+// }
+
+// let car = {
+//     owner: 'Sacha',
+//     year: 2024,
+//     model: '4x4',
+//     options: {
+//         key: 'chauffage'
+//     }
+// }
+// for (const key in car){
+//     let value = car[key]
+//     console.log(car[key])
+// }
+
+// let n = -1;
+// while (n <= 15) {
+//     n++;
+//     if (n%2==0){
+//         console.log(n+" EVEN")
+//     } else{
+//         console.log(n+" ODD")
+//     }
+// }
+
+
+
+// let n = 16;
+// do {
+//     n++;
+//     if (n%2==0){
+//         console.log(n+" EVEN")
+//     } else{
+//         console.log(n+" ODD")
+//     }
+// } while (n < 15)
+
+
+// let i = 0;
+// do {
+//     console.log("The number is " + i)
+//     i++;
+// }
+// while (i < 10);
+
+
+// for (let i = 0; i < 10; i++) {
+//     if (i === 3) { 
+//         continue;
+//     }
+//     console.log("The number is " + i); // 0 1 2
+// }
+
+let names= ["john", "sarah", 23, "Rudolf",34]
+if (names == []){
+    while
+}
