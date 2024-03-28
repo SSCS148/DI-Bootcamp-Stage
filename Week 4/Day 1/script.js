@@ -244,7 +244,3 @@
 //     console.log("The number is " + i); // 0 1 2
 // }
 
-let names= ["john", "sarah", 23, "Rudolf",34]
-if (names == []){
-    while
-}

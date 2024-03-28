@@ -4,18 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="XP.js">
 </head>
-<body>
-    <div id="navBar">
-        <ul>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">My Friends</a></li>
-            <li><a href="#">Messenger</a></li>
-            <li><a href="#">My Pics</a></li>
-        </ul>
-    </div>
-    <script src="XP.js"></script>
+<style>
+    .sideway { 
+        writing-mode: vertical-rl;
+        margin-left: 200px;
+        width: calc(5px + 100px);
+    }
+    .normal {
+        width: 5%;
+        float: left;
+    }
+    </style>
+    <body>
+    <p class="normal">
+        Hi some paragraph text
+    </p>
+    <p class="sideway"> 
+        Hey I'm some sidway text
+    </p>
+
+    <div><input list="animaux" name="animal" id="animal">
+<datalist id="animaux" > 
+    <option value="Chat"> 
+    <option value="Chien"> 
+    <option value="Poulet"> 
+    <option value="Vache"> 
+    <option value="Oiseau"> 
+    </ liste de données>
+</div>
+
+<br>
+
+    <div> <input type="checkbox" name="checkbox" id="checkbox_id" value="value"> 
+<label for="checkbox_id">J'accepte</label>
+    <input type="checkbox" name="checkbox" id="checkbox_id" value="value"> 
+<label for="checkbox_id">Je refuse</label></div>
+
+<script src="XP.js"></script>
 </body>
 </html>
