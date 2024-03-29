@@ -1,144 +1,150 @@
-// // 🌟 Exercise 1: Find The Numbers Divisible By 23
+//Exercise 1
 
-// // Function to display numbers divisible by 23
-// function displayNumbersDivisible(divisor = 23) {
-//     let sum = 0;
-//     for (let i = 0; i <= 500; i++) {
-//         if (i % divisor === 0) {
-//             console.log(i);
-//             sum += i;
+// // Part I - Review About Arrays
+// const people = ["Greg", "Mary", "Devon", "James"];
+
+// people.shift();
+
+// const jamesIndex = people.indexOf("James");
+// if (jamesIndex !== -1) {
+//     people[jamesIndex] = "Jason";
+// }
+
+// const myName = "Sacha";
+// people.push(myName);
+
+// console.log(people.indexOf("Mary"));
+
+// const copyOfPeople = people.slice(1, -1);
+
+// console.log(people.indexOf("Foo")); // Returns -1 because "Foo" doesn't exist in the array
+
+// const last = people[people.length - 1];
+
+// // Part II - Loops
+// for (let person of people) {
+//     console.log(person);
+// }
+// for (let person of people) {
+//     console.log(person);
+//     if (person === "Devon") {
+//         break;
+//     }
+// }
+
+// //Exercise 2
+
+// const colors = ["blue", "red", "green", "yellow", "purple"];
+
+// const suffixes = ["st", "nd", "rd", "th", "th"];
+// for (let i = 0; i < colors.length; i++) {
+//     let suffixIndex = i;
+//     if (i >= 3 && i <= 20) {
+//         suffixIndex = 3;
+//     } else {
+//         suffixIndex = i % 10;
+//         if (suffixIndex >= suffixes.length) {
+//             suffixIndex = 4;
 //         }
 //     }
-//     console.log('Sum:', sum);
+//     console.log(`My ${i + 1}${suffixes[suffixIndex]} choice is ${colors[i]}`);
 // }
 
-// // Example usage:
-// displayNumbersDivisible(); // Display numbers divisible by 23 and their sum
+//Exercise 3
 
-// 🌟 Exercise 2: Shopping List
+// let number;
+// do {
+//     number = Number(prompt("Please enter a number:"));
+// } while (number < 10);
 
-// const stock = { 
-//     "banana": 6, 
-//     "apple": 0,
-//     "pear": 12,
-//     "orange": 32,
-//     "blueberry":1
-// };  
+// console.log("Number is greater than or equal to 10.");
 
-// const prices = {    
-//     "banana": 4, 
-//     "apple": 2, 
-//     "pear": 1,
-//     "orange": 1.5,
-//     "blueberry":10
-// };
+//EXERCISE 4
 
-// // Shopping list array
-// const shoppingList = ["banana", "orange", "apple"];
-
-// // Function to calculate total bill
-// function myBill() {
-//     let total = 0;
-//     for (let item of shoppingList) {
-//         if (item in stock && stock[item] > 0) {
-//             total += prices[item];
-//             stock[item]--;
-//         }
-//     }
-//     return total;
+// const building = {
+//     numberOfFloors: 4,
+//     numberOfAptByFloor: {
+//         firstFloor: 3,
+//         secondFloor: 4,
+//         thirdFloor: 9,
+//         fourthFloor: 2,
+//     },
+//     nameOfTenants: ["Sarah", "Dan", "David"],
+//     numberOfRoomsAndRent:  {
+//         sarah: [3, 990],
+//         dan:  [4, 1000],
+//         david: [1, 500],
+//     },
 // }
 
-// // Example usage:
-// console.log("Total Bill:", myBill());
+// // Console.log the number of floors in the building
+// console.log("Number of floors in the building:", building.numberOfFloors);
 
-// 🌟 Exercise 3: What’s In My Wallet ?
+// // Console.log how many apartments are on floors 1 and 3
+// console.log("Number of apartments on first floor:", building.numberOfAptByFloor.firstFloor);
+// console.log("Number of apartments on third floor:", building.numberOfAptByFloor.thirdFloor);
 
-// function changeEnough(itemPrice, amountOfChange) {
-//     const denominations = [0.25, 0.10, 0.05, 0.01];
-//     let totalChange = 0;
-//     for (let i = 0; i < amountOfChange.length; i++) {
-//         totalChange += amountOfChange[i] * denominations[i];
-//     }
-//     return totalChange >= itemPrice;
+// // Console.log the name of the second tenant and the number of rooms he has in his apartment
+// const secondTenant = building.nameOfTenants[1];
+// const roomsForSecondTenant = building.numberOfRoomsAndRent[secondTenant][0];
+// console.log("Name of the second tenant:", secondTenant);
+// console.log("Number of rooms he has:", roomsForSecondTenant);
+
+// // Check if the sum of Sarah’s and David’s rent is bigger than Dan’s rent. If it is, then increase Dan’s rent to 1200.
+// const sarahRent = building.numberOfRoomsAndRent.sarah[1];
+// const davidRent = building.numberOfRoomsAndRent.david[1];
+// const danRent = building.numberOfRoomsAndRent.dan[1];
+
+// if ((sarahRent + davidRent) > danRent) {
+//     console.log("The sum of Sarah's and David's rent is bigger than Dan's rent.");
+//     console.log("Increasing Dan's rent to 1200.");
+//     building.numberOfRoomsAndRent.dan[1] = 1200;
+// } else {
+//     console.log("The sum of Sarah's and David's rent is not bigger than Dan's rent.");
 // }
 
-// // Example usage:
-// console.log(changeEnough(4.25, [25, 20, 5, 0])); // Should return true
-// console.log(changeEnough(14.11, [2, 100, 0, 0])); // Should return false
-// console.log(changeEnough(0.75, [0, 0, 20, 5])); // Should return true
+// console.log("Updated Dan's rent:", building.numberOfRoomsAndRent.dan[1]);
+
+//Exercise 5
+// const family = {
+//     father: 'John',
+//     mother: 'Jane',
+//     son: 'Tom',
+//     daughter: 'Emily'
+//   };
+
+//   console.log("Keys of the family object:");
+//   for (let key in family) {
+//     console.log(key);
+//   }
+
+//   console.log("\nValues of the family object:");
+//   for (let key in family) {
+//     console.log(family[key]);
+//   }
 
 
-// 🌟 Exercise 4: Vacations Costs
+//Exercise 6
 
-// Function to calculate hotel cost
-// function hotelCost() {
-//     let numNights = parseInt(prompt("Enter the number of nights you would like to stay:"));
-//     while (isNaN(numNights)) {
-//         numNights = parseInt(prompt("Invalid input! Please enter a number:"));
-//     }
-//     return numNights * 140;
-// }
+// const details = {
+//     my: 'name',
+//     is: 'Rudolf',
+//     the: 'raindeer'
+//   };
 
-// // Function to calculate plane ride cost
-// function planeRideCost() {
-//     let destination = prompt("Enter your destination (London, Paris, or others):").toLowerCase();
-//     let price;
-//     switch (destination) {
-//         case "london":
-//             price = 183;
-//             break;
-//         case "paris":
-//             price = 220;
-//             break;
-//         default:
-//             price = 300;
-//             break;
-//     }
-//     return price;
-// }
+//   let sentence = '';
+//   for (let key in details) {
+//     sentence += key === 'my' ? 'My ' : '';
+//     sentence += details[key] + ' ';
+//   }  
+//   console.log(sentence.trim()); 
 
-// // Function to calculate rental car cost
-// function rentalCarCost() {
-//     let numDays = parseInt(prompt("Enter the number of days you would like to rent the car:"));
-//     while (isNaN(numDays)) {
-//         numDays = parseInt(prompt("Invalid input! Please enter a number:"));
-//     }
-//     let totalCost = numDays * 40;
-//     if (numDays > 10) {
-//         totalCost *= 0.95; // Apply 5% discount
-//     }
-//     return totalCost;
-// }
+//Exercise 7
 
-// // Function to calculate total vacation cost
-// function totalVacationCost() {
-//     const hotel = hotelCost();
-//     const plane = planeRideCost();
-//     const rentalCar = rentalCarCost();
-//     const totalCost = hotel + plane + rentalCar;
-//     console.log(`The hotel cost: $${hotel}, the plane tickets cost: $${plane}, the car rental cost: $${rentalCar}.`);
-//     console.log(`Total vacation cost: $${totalCost}`);
-// }
+// const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
 
-// // Example usage:
-// totalVacationCost();
+// const initials = names.map(name => name[0]).sort();
 
+// const secretSocietyName = initials.join('');
 
-// 🌟 Exercise 6: Change The Navbar
-
-// Change the value of the id attribute from navBar to socialNetworkNavigation
-// const navBar = document.getElementById('navBar');
-// navBar.setAttribute('id', 'socialNetworkNavigation');
-
-// // Add a new <li> to the <ul>
-// const newListItem = document.createElement('li');
-// newListItem.innerHTML = '<a href="#">Logout</a>';
-// navBar.firstElementChild.appendChild(newListItem);
-
-// // Retrieve the first and last <li> elements and display their text
-// const firstLi = navBar.firstElementChild.firstElementChild;
-// const lastLi = navBar.firstElementChild.lastElementChild;
-// console.log(firstLi.textContent, lastLi.textContent);
-
-
-
+// console.log("The name of their secret society:", secretSocietyName); 

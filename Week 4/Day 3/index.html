@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .sideway { 
+        writing-mode: vertical-rl;
+        margin-left: 200px;
+        width: calc(5px + 100px);
+    }
+    .normal {
+        width: 5%;
+        float: left;
+    }
+    </style>
+    <body>
+    <p class="normal">
+        Hi some paragraph text
+    </p>
+    <p class="sideway"> 
+        Hey I'm some sidway text
+    </p>
+
+    <div><input list="animaux" name="animal" id="animal">
+<datalist id="animaux" > 
+    <option value="Chat"> 
+    <option value="Chien"> 
+    <option value="Poulet"> 
+    <option value="Vache"> 
+    <option value="Oiseau"> 
+    </ liste de données>
+</div>
+
+<br>
+
+    <div> <input type="checkbox" name="checkbox" id="checkbox_id" value="value"> 
+<label for="checkbox_id">J'accepte</label>
+    <input type="checkbox" name="checkbox" id="checkbox_id" value="value"> 
+<label for="checkbox_id">Je refuse</label></div>
+
+<script src="XP.js"></script>
+</body>
+</html>
