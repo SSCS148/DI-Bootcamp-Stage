@@ -1,5 +1,6 @@
 {
     "python.linting.pylintEnabled": true,
     "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
-    "wolf.disableHotModeWarning": true
+    "wolf.disableHotModeWarning": true,
+    "livePreview.defaultPreviewPath": "/Week 5/Day 3/DOM/index.html"
 }
