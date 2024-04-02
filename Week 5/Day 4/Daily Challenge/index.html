@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Challenge: Mad Libs</title>
+</head>
+<body>
+
+    <h1>Mad Libs</h1>
+
+    <form id="libform">
+        <label for="noun">Noun:</label><input type="text" id="noun"><br>
+        <label for="adjective">Adjective:</label><input type="text" id="adjective"><br>
+        <label for="person">Someone's Name:</label><input type="text" id="person"><br>
+        <label for="verb">Verb:</label><input type="text" id="verb"><br>
+        <label for="place">A place:</label><input type="text" id="place"><br>
+        <button id="lib-button">Lib it!</button>
+        <button id="shuffle-button">Shuffle</button>
+    </form>
+
+    <p>Generated story: 
+    <span id="story"></span>
+    </p>
+
+    <script>
+        document.getElementById('libform').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var noun = document.getElementById('noun').value;
+            var adjective = document.getElementById('adjective').value;
+            var person = document.getElementById('person').value;
+            var verb = document.getElementById('verb').value;
+            var place = document.getElementById('place').value;
+
+            if (noun && adjective && person && verb && place) {
+                var story = person + " went to " + place + " and saw a " + adjective + " " + noun + ". " + person + " then " + verb + " away.";
+                document.getElementById('story').textContent = story;
+            } else {
+                console.error('Please fill in all the inputs!');
+            }
+        });
+
+        document.getElementById('shuffle-button').addEventListener('click', function() {
+            var stories = [
+                "The " + adjective + " " + noun + " " + verb + " " + person + " in " + place + ".",
+                person + " " + verb + " to the " + place + " and saw a " + adjective + " " + noun + ".",
+                "In " + place + ", " + person + " " + verb + " a " + adjective + " " + noun + "."
+            ];
+            var randomStory = stories[Math.floor(Math.random() * stories.length)];
+            document.getElementById('story').textContent = randomStory;
+        });
+    </script>
+
+</body>
+</html> -->

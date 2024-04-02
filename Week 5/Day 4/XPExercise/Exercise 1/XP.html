@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+</head>
+<body>
+    <article>
+        <h1> Some Facts </h1>
+        <h2 id="heading2"> The Chocolate </h2>
+        <h3 id="heading3"> History of the chocolate </h3>
+        <p> Chocolate is made from tropical Theobroma cacao tree seeds. 
+        Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
+        <p> After the European discovery of the Americas, chocolate became 
+        very popular in the wider world, and its demand exploded. </p>
+        <p> Chocolate has since become a popular food product that millions enjoy every day, 
+        thanks to its unique, rich, and sweet taste.</p> 
+        <p> But what effect does eating chocolate have on our health?</p> 
+    </article>
+
+    <button id="boldButton">Make Text Bold</button>
+
+    <script>// Exercise 1
+
+        // Retrieve the h1 and console.log it
+        const h1 = document.querySelector('article h1');
+        console.log(h1.textContent);
+        
+        // Remove the last paragraph
+        const article = document.querySelector('article');
+        const paragraphs = article.querySelectorAll('p');
+        article.removeChild(paragraphs[paragraphs.length - 1]);
+        
+        // Change background color of h2 when clicked
+        const h2 = document.getElementById('heading2');
+        h2.addEventListener('click', function() {
+            h2.style.backgroundColor = 'red';
+        });
+        
+        // Hide h3 when clicked
+        const h3 = document.getElementById('heading3');
+        h3.addEventListener('click', function() {
+            h3.style.display = 'none';
+        });
+        
+        // Make text of all paragraphs bold when button is clicked
+        const boldButton = document.getElementById('boldButton');
+        boldButton.addEventListener('click', function() {
+            paragraphs.forEach(paragraph => {
+                paragraph.style.fontWeight = 'bold';
+            });
+        });
+        </script>
+</body>
+</html> -->

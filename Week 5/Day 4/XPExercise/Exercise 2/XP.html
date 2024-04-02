@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="firstname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lastname"><br><br>
+        <input type="submit" value="Submit" id="submit">
+    </form>
+
+    <ul class="usersAnswer"></ul>
+
+    <script> // Exercise 2
+
+        // Retrieve the form and console.log it
+        const form = document.getElementById('myForm');
+        console.log(form);
+        
+        // Retrieve the inputs by their id and console.log them
+        const fnameInput = document.getElementById('fname');
+        const lnameInput = document.getElementById('lname');
+        console.log(fnameInput, lnameInput);
+        
+        // Retrieve the inputs by their name attribute and console.log them
+        const inputsByName = document.getElementsByName('firstname');
+        console.log(inputsByName);
+        
+        // Event listener for form submission
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+        
+            // Get input values
+            const fnameValue = fnameInput.value.trim();
+            const lnameValue = lnameInput.value.trim();
+        
+            // Check if inputs are not empty
+            if (fnameValue !== '' && lnameValue !== '') {
+                // Create li elements
+                const firstNameLi = document.createElement('li');
+                const lastNameLi = document.createElement('li');
+        
+                // Set text content for li elements
+                firstNameLi.textContent = fnameValue;
+                lastNameLi.textContent = lnameValue;
+        
+                // Append li elements to ul
+                const ul = document.querySelector('.usersAnswer');
+                ul.appendChild(firstNameLi);
+                ul.appendChild(lastNameLi);
+        
+                // Clear input fields
+                fnameInput.value = '';
+                lnameInput.value = '';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+        </script>
+</body>
+</html> -->
