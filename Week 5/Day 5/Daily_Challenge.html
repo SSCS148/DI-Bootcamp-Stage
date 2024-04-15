@@ -1,0 +1,88 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        /* Add your CSS styles here */
+        .listTasks {
+            margin-top: 20px;
+        }
+
+        .task {
+            margin-bottom: 10px;
+        }
+
+        .task label {
+            margin-right: 10px;
+        }
+
+        .task button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="Enter task">
+        <button type="submit">Submit</button>
+    </form>
+    <div class="listTasks"></div>
+
+    <script>
+        // Add your JavaScript code here
+        const tasks = [];
+
+        function addTask(event) {
+            event.preventDefault();
+            const taskInput = document.getElementById('taskInput').value.trim();
+            if (taskInput !== '') {
+                const taskId = tasks.length;
+                tasks.push({ task_id: taskId, text: taskInput, done: false });
+                renderTasks();
+                document.getElementById('taskInput').value = '';
+            }
+        }
+
+        function renderTasks() {
+            const listTasks = document.querySelector('.listTasks');
+            listTasks.innerHTML = '';
+            tasks.forEach(task => {
+                const taskElement = document.createElement('div');
+                taskElement.classList.add('task');
+                const checkBox = document.createElement('input');
+                checkBox.type = 'checkbox';
+                checkBox.id = 'task' + task.task_id;
+                checkBox.dataset.taskId = task.task_id;
+                checkBox.addEventListener('change', () => doneTask(task.task_id));
+                const label = document.createElement('label');
+                label.htmlFor = 'task' + task.task_id;
+                label.textContent = task.text;
+                const deleteButton = document.createElement('button');
+                deleteButton.innerHTML = '<i class="fas fa-times"></i>';
+                deleteButton.addEventListener('click', () => deleteTask(task.task_id));
+                taskElement.appendChild(deleteButton);
+                taskElement.appendChild(checkBox);
+                taskElement.appendChild(label);
+                listTasks.appendChild(taskElement);
+            });
+        }
+
+        function doneTask(taskId) {
+            const taskIndex = tasks.findIndex(task => task.task_id === taskId);
+            tasks[taskIndex].done = !tasks[taskIndex].done;
+            renderTasks();
+        }
+
+        function deleteTask(taskId) {
+            const taskIndex = tasks.findIndex(task => task.task_id === taskId);
+            tasks.splice(taskIndex, 1);
+            renderTasks();
+        }
+
+        document.getElementById('taskForm').addEventListener('submit', addTask);
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html> -->
