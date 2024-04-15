@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Submission</title>
+</head>
+<body>
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName"><br><br>
+    <button type="submit">Send</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+
+      // Get input values
+      const name = document.getElementById('name').value;
+      const lastName = document.getElementById('lastName').value;
+
+      // Create a JavaScript object
+      const formData = {
+        name: name,
+        lastName: lastName
+      };
+
+      // Convert JavaScript object to JSON string
+      const jsonString = JSON.stringify(formData);
+
+      // Append JSON string to the DOM
+      document.getElementById('output').innerText = jsonString;
+    });
+  </script>
+</body>
+</html>
