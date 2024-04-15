@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coloring Squares</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        #color-grid {
+            display: grid;
+            grid-template-rows: repeat(10, 40px); /* Adjust as needed */
+            grid-gap: 2px;
+        }
+
+        .square {
+            width: 40px; /* Adjust as needed */
+            height: 40px; /* Adjust as needed */
+            background-color: white;
+            border: 1px solid #ccc; /* Add border for better visualization */
+        }
+
+        #drawing-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 40px); /* Adjust as needed */
+            grid-gap: 2px;
+        }
+
+        #clear-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="color-grid">
+            <!-- Color palette -->
+        </div>
+        <div id="drawing-grid">
+            <!-- Drawing grid -->
+        </div>
+    </div>
+    <button id="clear-btn">Clear All</button>
+
+    <script>
+        const colorGrid = document.getElementById('color-grid');
+        const drawingGrid = document.getElementById('drawing-grid');
+        const clearButton = document.getElementById('clear-btn');
+
+        // Define colors
+        const colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'cyan', 'magenta', 'lime']; // Add more colors if needed
+
+        // Create color palette
+        colors.forEach(color => {
+            const colorSquare = document.createElement('div');
+            colorSquare.classList.add('square');
+            colorSquare.style.backgroundColor = color;
+            colorSquare.addEventListener('click', () => {
+                selectedColor = color;
+            });
+            colorGrid.appendChild(colorSquare);
+        });
+
+        let isDrawing = false;
+        let selectedColor = 'black'; // Default color
+
+        // Create drawing grid
+        for (let i = 0; i < 100; i++) { // Change 100 to the desired number of squares
+            const drawingSquare = document.createElement('div');
+            drawingSquare.classList.add('square');
+            drawingSquare.addEventListener('mousedown', () => {
+                isDrawing = true;
+            });
+            drawingSquare.addEventListener('mouseup', () => {
+                isDrawing = false;
+            });
+            drawingSquare.addEventListener('mouseover', () => {
+                if (isDrawing) {
+                    drawingSquare.style.backgroundColor = selectedColor;
+                }
+            });
+            drawingGrid.appendChild(drawingSquare);
+        }
+
+        // Clear drawing grid
+        clearButton.addEventListener('click', () => {
+            drawingGrid.querySelectorAll('.square').forEach(square => {
+                square.style.backgroundColor = 'white';
+            });
+        });
+    </script>
+</body>
+</html>
