@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groceries</title>
+    <style>
+        #original, #modified {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Original Groceries</h2>
+    <div id="original"></div>
+    <button onclick="showModified()">Show Modified Groceries</button>
+    <h2>Modified Groceries</h2>
+    <div id="modified"></div>
+
+    <script>
+        let client = "John";
+
+        const groceries = {
+            fruits: ["pear", "apple", "banana"],
+            vegetables: ["tomatoes", "cucumber", "salad"],
+            totalPrice: "20$",
+            other: {
+                paid: true,
+                meansOfPayment: ["cash", "creditCard"]
+            }
+        };
+
+        // Function to display original groceries
+        function displayOriginal() {
+            const originalDiv = document.getElementById('original');
+            originalDiv.innerHTML = '';
+            for (const key in groceries) {
+                if (typeof groceries[key] === 'object') {
+                    originalDiv.innerHTML += `<strong>${key}:</strong><ul>`;
+                    groceries[key].forEach(item => {
+                        originalDiv.innerHTML += `<li>${item}</li>`;
+                    });
+                    originalDiv.innerHTML += `</ul>`;
+                } else {
+                    originalDiv.innerHTML += `<strong>${key}:</strong> ${groceries[key]}<br>`;
+                }
+            }
+        }
+
+        // Function to clone groceries and show modifications
+        const showModified = () => {
+            let user = client; // user is a copy of client
+            client = "Betty"; // changing client won't affect user since it's a primitive type (string)
+
+            let shopping = { ...groceries }; // shopping is a shallow copy of groceries
+            shopping.totalPrice = "35$"; // modifying totalPrice in shopping won't affect groceries
+            shopping.other.paid = false; // modifying paid in shopping WILL affect groceries since it's a nested object
+
+            const modifiedDiv = document.getElementById('modified');
+            modifiedDiv.innerHTML = '';
+            modifiedDiv.innerHTML += `<strong>Client:</strong> ${client}<br>`;
+            modifiedDiv.innerHTML += `<strong>Modified totalPrice:</strong> ${shopping.totalPrice}<br>`;
+            modifiedDiv.innerHTML += `<strong>Modified paid:</strong> ${shopping.other.paid}<br>`;
+        };
+
+        displayOriginal(); // Display original groceries
+    </script>
+</body>
+</html> -->
