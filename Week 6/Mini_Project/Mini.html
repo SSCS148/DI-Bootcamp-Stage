@@ -1,0 +1,148 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robo-Friends</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .search-box input {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 300px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .card .info {
+      padding: 20px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Robo-Friends</h1>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search robots...">
+  </div>
+
+  <div class="card-container" id="cardContainer">
+    <!-- Cards will be dynamically generated here -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cardContainer = document.getElementById('cardContainer');
+      const searchInput = document.getElementById('search');
+
+      const robots = [
+        {
+          id: 1,
+          name: 'Leanne Graham',
+          username: 'Bret',
+          email: 'Sincere@april.biz',
+          image: 'https://robohash.org/1?200x200'
+        },
+        {
+          id: 2,
+          name: 'Ervin Howell',
+          username: 'Antonette',
+          email: 'Shanna@melissa.tv',
+          image: 'https://robohash.org/2?200x200'
+        },
+        // Add other robot objects here...
+      ];
+
+      function generateCard(robot) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        const image = document.createElement('img');
+        image.src = robot.image;
+        image.alt = robot.name;
+
+        const info = document.createElement('div');
+        info.classList.add('info');
+        info.innerHTML = `
+          <h2>${robot.name}</h2>
+          <p>${robot.email}</p>
+          <p>${robot.username}</p>
+        `;
+
+        card.appendChild(image);
+        card.appendChild(info);
+
+        cardContainer.appendChild(card);
+      }
+
+      function generateCards(robots) {
+        cardContainer.innerHTML = ''; // Clear previous cards
+        robots.forEach(robot => {
+          generateCard(robot);
+        });
+      }
+
+      generateCards(robots);
+
+      searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filteredRobots = robots.filter(robot => {
+          return robot.name.toLowerCase().includes(searchTerm);
+        });
+        generateCards(filteredRobots);
+      });
+    });
+  </script>
+</body>
+</html> -->
