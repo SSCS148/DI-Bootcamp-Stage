@@ -43,3 +43,4 @@
 // promise2.catch(error => {
 //   console.log(error); // Output: Boo!
 // });
+
