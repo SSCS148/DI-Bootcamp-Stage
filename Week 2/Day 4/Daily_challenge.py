@@ -1,21 +1,21 @@
-matrix_string = '''7ii Tsx h%? i # sM $a #t% ^r!'''
+# import re
 
-Column = 3
-Rows = 8
-rows = matrix_string.split('\n')
-row = [row.split(' ') for row in rows]
-print(rows)
-matrix = []
-# for i in range (len(matrix_string)):
-#     sublist = list(matrix_string[i:i+Column])
-#     matrix.append(sublist)
-    
-# print(matrix)
-for row in rows:
-        matrix.append(list(row))
-        
-matrix = [list(row) for row in matrix]
-print(matrix)
+# MATRIX_STRING = "7i3Tsih%xi #sM $a #t%^r!"
+# COLUMNS = 3
+# ROWS = 8
 
-transposed_matrix = list(zip(matrix))   
-print(transposed_matrix)
+# matrix = [char for char in MATRIX_STRING]
+
+# matrix = [list(row) for row in zip(*[iter(matrix)]*COLUMNS)]
+
+
+# no_digits_list = list()
+
+# for col in range(COLUMNS):
+#     for row in range(ROWS):
+#         if not matrix[row][col].isdigit():
+#             no_digits_list.append(matrix[row][col])
+
+# no_digits_string = "".join(no_digits_list)
+
+# print(re.sub('[^A-Za-z0-9]+', ' ', no_digits_string))
