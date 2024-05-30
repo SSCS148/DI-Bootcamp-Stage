@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+    .container {
+      margin-top: 20px;
+    }
+    .logo {
+      width: 200px;
+    }
+    .pokedex {
+      display: inline-block;
+      background: url('pokedex.png') no-repeat center center;
+      background-size: cover;
+      width: 300px;
+      height: 500px;
+      position: relative;
+    }
+    .display {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 300px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .info {
+      text-align: left;
+    }
+    .hidden {
+      display: none;
+    }
+    .loading {
+      font-size: 1.2em;
+      color: #666;
+    }
+    .error {
+      color: red;
+    }
+    .buttons {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    button {
+      background-color: #ffcc00;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    button:hover {
+      background-color: #ff9900;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Pokédex Logo" class="logo">
+    <div class="pokedex">
+      <div class="display">
+        <div id="loading-message" class="loading">Loading...</div>
+        <div id="pokemon-info" class="info hidden">
+          <img id="pokemon-image" src="" alt="Pokémon Image">
+          <p id="pokemon-name">Name: </p>
+          <p id="pokemon-id">ID: </p>
+          <p id="pokemon-height">Height: </p>
+          <p id="pokemon-weight">Weight: </p>
+          <p id="pokemon-type">Type: </p>
+        </div>
+        <div id="error-message" class="error hidden">Oh no! That Pokémon isn’t available…</div>
+      </div>
+      <div class="buttons">
+        <button id="previous-button">Previous</button>
+        <button id="random-button">Random</button>
+        <button id="next-button">Next</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
+    let currentPokemonId = 1; // Start with the first Pokémon
+
+    document.getElementById('random-button').addEventListener('click', fetchRandomPokemon);
+    document.getElementById('previous-button').addEventListener('click', fetchPreviousPokemon);
+    document.getElementById('next-button').addEventListener('click', fetchNextPokemon);
+
+    async function fetchPokemon(id) {
+      try {
+        showLoading();
+        const response = await fetch(`${API_URL}${id}`);
+        if (!response.ok) {
+          throw new Error('Pokémon not found');
+        }
+        const data = await response.json();
+        displayPokemon(data);
+      } catch (error) {
+        showError();
+      }
+    }
+
+    function showLoading() {
+      document.getElementById('loading-message').classList.remove('hidden');
+      document.getElementById('pokemon-info').classList.add('hidden');
+      document.getElementById('error-message').classList.add('hidden');
+    }
+
+    function showError() {
+      document.getElementById('loading-message').classList.add('hidden');
+      document.getElementById('pokemon-info').classList.add('hidden');
+      document.getElementById('error-message').classList.remove('hidden');
+    }
+
+    function displayPokemon(data) {
+      document.getElementById('pokemon-image').src = data.sprites.front_default;
+      document.getElementById('pokemon-name').textContent = `Name: ${data.name}`;
+      document.getElementById('pokemon-id').textContent = `ID: ${data.id}`;
+      document.getElementById('pokemon-height').textContent = `Height: ${data.height}`;
+      document.getElementById('pokemon-weight').textContent = `Weight: ${data.weight}`;
+      document.getElementById('pokemon-type').textContent = `Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
+      document.getElementById('loading-message').classList.add('hidden');
+      document.getElementById('pokemon-info').classList.remove('hidden');
+      document.getElementById('error-message').classList.add('hidden');
+    }
+
+    async function fetchRandomPokemon() {
+      const randomId = Math.floor(Math.random() * 898) + 1; // There are 898 Pokémon
+      currentPokemonId = randomId;
+      await fetchPokemon(randomId);
+    }
+
+    async function fetchPreviousPokemon() {
+      if (currentPokemonId > 1) {
+        currentPokemonId--;
+        await fetchPokemon(currentPokemonId);
+      }
+    }
+
+    async function fetchNextPokemon() {
+      if (currentPokemonId < 898) {
+        currentPokemonId++;
+        await fetchPokemon(currentPokemonId);
+      }
+    }
+
+    // Initial fetch to display the first Pokémon
+    fetchPokemon(currentPokemonId);
+  </script>
+</body>
+</html>

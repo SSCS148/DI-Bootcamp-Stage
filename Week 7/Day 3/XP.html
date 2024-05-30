@@ -1,0 +1,266 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Star Wars Web App</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<style>
+    body {
+  background-color: black;
+
+  background-image: url("https://i.giphy.com/media/TxVVB6PfWMjE4/200.webp");
+
+  font-family: 'Helvetica Neue';
+
+  color: yellow;
+  text-align: center;
+}
+
+/*.wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}*/
+
+
+.logo {
+
+  background: url("https://i.dlpng.com/static/png/253278_thumb.png") center center no-repeat;
+  width: 400px;
+  height: 300px;
+
+  /*background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png") center center no-repeat;*/
+
+ /* background-size: contain;*/
+  /*width: 1000px;
+  height: 300px;*/
+  margin:  0 auto;
+
+  margin-top: -20px;
+}
+
+
+.info-container{
+
+  border: 3px solid yellow;
+  border-radius: 15px;
+
+  width: 600px;
+  height: 250px;
+
+  margin: 0 auto;
+
+  margin-top: -25px;
+
+}
+
+
+#button{
+	margin-top: 20px;
+
+	border: 3px solid yellow;
+	border-radius: 10px;
+
+	width: 180px;
+	height: 40px;
+
+	font-weight: bold;
+	font-size: 20px;
+
+	cursor: pointer;
+}
+
+
+button:focus {
+
+	outline:0;
+}
+
+#name{
+	color: white;
+
+	font-size: 30px;
+	
+}
+
+#height{
+	color: white;
+	/*font-weight: bold;*/
+
+	font-size: 20px;
+}
+
+#gender{
+	color: white;
+	/*font-weight: bold;*/
+
+	font-size: 20px;
+}
+
+#birth-year{
+	color: white;
+	/*font-weight: bold;*/
+
+	font-size: 20px;
+}
+
+#home-world{
+	color: white;
+	/*font-weight: bold;*/
+
+	font-size: 20px;
+}
+
+
+p{
+	color: white;
+	font-weight: bold;
+
+	font-size: 30px;
+}
+
+
+</style>
+<body>
+
+	<div class="wrapper">
+
+
+		<div class="logo"></div>
+
+		<div class="info-container">
+
+			<h1 id="name"></h1>
+
+			<p id="height"></p>
+
+			<p id="gender"></p>
+
+			<p id="birth-year"></p>
+
+			<p id="home-world"></p>
+			
+		</div>
+
+		<button type="button" id="button" name="button">Find Someone</button>
+
+
+	</div>
+
+
+
+<script>
+    console.log('ver 2.3 ajax');
+// init ajax
+let xhr = new XMLHttpRequest();
+
+//Select elements in DOM
+let button = document.querySelector('#button');
+let names = document.querySelector('#name');
+let height = document.querySelector('#height');
+let gender = document.querySelector('#gender');
+let birthYear = document.querySelector('#birth-year');
+let homeWorld = document.querySelector('#home-world');
+
+//Get the info from API and catch for Errors
+function getInfo (){
+  //Call Loading Data
+ 	updateWithLoading();
+  //Get Random people in the API between 1 and 88
+ 	let randomNumber = Math.floor((Math.random() * 88) + 1);
+   let apiUrl = 'https://swapi.dev/api/people/' + randomNumber + '/';
+   
+  // ajax
+  xhr.open('GET', apiUrl);
+  xhr.responseType = 'json';
+  xhr.send();
+  xhr.onload = function(){
+    if(xhr.status != 200){
+      //console.log(`Error: ${xhr.status}: ${xht.statusText}`);
+      updateInfoWithError();
+      console.log('there was an error');
+    }
+    else{
+      updateInfo(xhr.response);
+    }
+  }
+  xhr.onerror = function() {
+    updateInfoWithError();
+    console.log('there was an error');
+  };
+ }
+
+ //Display info on screen
+ function updateInfo(resp){
+   
+  // ajax
+  let url = new URL(resp.homeworld);
+  url.protocol = 'https:'
+  xhr.open('GET', url.href);
+
+  xhr.responseType = 'json';
+  xhr.send();
+  xhr.onload = function(){
+    if(xhr.status != 200){
+      console.log('there was an error 2');
+    }
+    else{
+      updateInfo2(xhr.response)
+    }
+  }
+  xhr.onerror = function() {
+    console.log('there was an error 3');
+  };
+ 	console.log(resp.homeworld);
+  console.log(resp.name);
+ 	console.log(names);
+
+  names.innerText = resp.name;
+  height.innerText = `Height: ${resp.height}`;
+  gender.innerText = `Gender: ${resp.gender}`;
+  birthYear.innerText = `Birth Year: ${resp.birth_year}`;
+  // homeWorld.innerText = `Home World: ${planet}`;
+}
+
+
+//Display Home World
+function updateInfo2(re){
+ 	// console.log(re.name)
+ 	// return re.name;
+ 	homeWorld.innerText = `Home World: ${re.name}`;
+}
+
+//Display when Error
+function updateInfoWithError(){
+  names.innerText = 'Oh No! That person isnt available.';
+  height.innerText = ''
+  gender.innerText = ''
+  birthYear.innerText = ''
+  homeWorld.innerText = ''
+}
+
+//Display when updating info (pending data)
+function updateWithLoading(){
+  //Icon link: https://fontawesome.com/how-to-use/on-the-web/styling/animating-icons
+  names.innerHTML = '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> <p>Loading...</p>';
+  height.innerText = ''
+  gender.innerText = ''
+  birthYear.innerText = ''
+  homeWorld.innerText = ''
+}
+
+button.addEventListener('click', getInfo);
+
+
+
+//https://mathiasbynens.be/notes/xhr-responsetype-json
+// Ref: https://www.w3schools.com/js/js_json_http.asp
+// Ref: https://www.freecodecamp.org/forum/t/get-json-with-the-javascript-xmlhttprequest-method/197547
+
+</script>
+
+</body>
+</html> -->
