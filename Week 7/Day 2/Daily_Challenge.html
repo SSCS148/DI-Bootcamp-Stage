@@ -1,0 +1,113 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giphy Random Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #gif-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .gif-item {
+      position: relative;
+      display: inline-block;
+      margin: 10px;
+    }
+    .gif-item img {
+      max-width: 200px;
+      height: auto;
+    }
+    .gif-item button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+    #delete-all {
+      margin-top: 20px;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Giphy Random Search</h1>
+  <form id="gif-form">
+    <input type="text" id="category" placeholder="Enter category" required>
+    <button type="submit">Search</button>
+  </form>
+  <div id="gif-container"></div>
+  <button id="delete-all">Delete All GIFs</button>
+
+  <script>
+    const API_KEY = 'hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My';
+    const form = document.getElementById('gif-form');
+    const gifContainer = document.getElementById('gif-container');
+    const deleteAllButton = document.getElementById('delete-all');
+
+    // Event listener for the form submission
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const category = document.getElementById('category').value.trim();
+      fetchRandomGif(category);
+    });
+
+    // Fetch a random GIF based on the category
+    function fetchRandomGif(category) {
+      const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${category}`;
+      
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+          appendGif(data.data);
+        })
+        .catch(error => {
+          console.error('There has been a problem with your fetch operation:', error);
+        });
+    }
+
+    // Append the fetched GIF to the container
+    function appendGif(gifData) {
+      const gifItem = document.createElement('div');
+      gifItem.className = 'gif-item';
+
+      const img = document.createElement('img');
+      img.src = gifData.images.fixed_height.url;
+      img.alt = gifData.title;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'DELETE';
+      deleteButton.addEventListener('click', () => {
+        gifContainer.removeChild(gifItem);
+      });
+
+      gifItem.appendChild(img);
+      gifItem.appendChild(deleteButton);
+      gifContainer.appendChild(gifItem);
+    }
+
+    // Event listener for the delete all button
+    deleteAllButton.addEventListener('click', () => {
+      gifContainer.innerHTML = '';
+    });
+  </script>
+</body>
+</html> -->
