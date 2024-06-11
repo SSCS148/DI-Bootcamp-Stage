@@ -1,61 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmation</title>
+    <title>Mon Site Web</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        nav ul {
+            list-style-type: none;
             padding: 0;
             text-align: center;
+            background-color: #333;
+            margin: 0;
         }
-        .header {
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2em;
+            margin: 1em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        form {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
         }
-        .header img {
-            height: 50px;
+
+        form label {
+            margin: 0.5em 0 0.2em 0;
         }
-        .content {
-            margin-top: 20px;
+
+        form input, form textarea, form button {
+            margin-bottom: 1em;
+            padding: 0.5em;
         }
-        .product-image img {
-            width: 200px;
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
-        .footer {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .footer img {
-            width: 100px;
-            height: auto;
+
+        form button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://via.placeholder.com/150x50.png?text=Mega+Sport+Logo" alt="Mega Sport Logo">
-    </div>
-    <div class="content">
-        <h1>Hello, sacha shimon</h1>
-        <p>Your order <strong>000016524</strong> has been successfully placed!</p>
-        <h2>Product: Men's Running Shoes - Black</h2>
-        <p>Product Code: ADIG985008</p>
-        <p>Quantity: 1</p>
-        <p>Price: 679.92</p>
-        <div class="product-image">
-            <img src="https://via.placeholder.com/200.png?text=Men%27s+Running+Shoes" alt="Men's Running Shoes - Black">
-        </div>
-    </div>
-    <div class="footer">
-        <img src="https://via.placeholder.com/100.png?text=Image+1" alt="Footer Image 1">
-        <img src="https://via.placeholder.com/100.png?text=Image+2" alt="Footer Image 2">
-        <img src="https://via.placeholder.com/100.png?text=Image+3" alt="Footer Image 3">
-    </div>
+    <header>
+        <h1>Bienvenue sur mon site web</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <h2>Accueil</h2>
+        <p>Ceci est la page d'accueil de mon site web.</p>
+    </section>
+    <section id="about">
+        <h2>À propos</h2>
+        <p>Voici quelques informations à propos de moi.</p>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Vous pouvez me contacter via ce formulaire.</p>
+        <form id="contact-form">
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2024 Mon Site Web</p>
+    </footer>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Merci pour votre message, nous vous répondrons bientôt !');
+        });
+    </script>
 </body>
 </html>
